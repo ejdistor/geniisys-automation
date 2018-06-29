@@ -38,4 +38,14 @@ public class UnderwritingMainMenu {
 		}
 		return new PolicyParCreationPage(driver);
 	}
+	
+	public void goToGiiss028() {
+		try {
+			driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[2]/div/div[1]/div/div/ul/li[10]/a")).click();
+			driver.findClickableElement(By.xpath("//*[@id=\"general\"]")).click();
+			driver.findClickableElement(By.xpath("//*[@id=\"taxCharges\"]")).click();
+		}catch(TimeoutException e) {
+			LOGGER.error(e);
+		}
+	}
 }

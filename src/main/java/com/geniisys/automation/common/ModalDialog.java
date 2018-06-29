@@ -56,5 +56,21 @@ public class ModalDialog {
 		}
 		LOGGER.info("Prompt closed.");
 	}
+	
+	public void searchAndSelectAutoSelectOne(String keyword) {
+		if (isDisplayed()) {
+			try {
+				driver.findElement(findFldLocator).click();
+				LOGGER.info("Find field clicked.");
+				driver.findElement(findFldLocator).clear();
+				LOGGER.info("Find field cleared.");
+				driver.findElement(findFldLocator).sendKeys(keyword, Keys.ENTER);
+				LOGGER.info("Find field value set to '" + keyword + "'.");
+			} catch (TimeoutException e) {
+				LOGGER.error(e);
+			}
+		}
+		LOGGER.info("Prompt closed.");
+	}
 
 }
